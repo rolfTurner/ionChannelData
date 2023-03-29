@@ -27,7 +27,7 @@ the voltage (emf) in nanovolts, across cell membranes.
    ic50kHz_10_sgmnt1
 }
 \format{
-  Data framesi, each with a single numeric column named \dQuote{emf},
+  Data frames, each with a single numeric column named \dQuote{emf},
   with 200001, 200000, 200000, 200000, 199926, 200000 and 200000
   observations respectively.
 }
@@ -49,7 +49,8 @@ these data.
                               tolerance=1e-6,verb=TRUE,itmax=1000)
 # Compare with results from depmixS4
     if(requireNamespace("depmixS4")) {
-        mdl <- depmixS4::depmix(emf ~ 1, data=xxx, nstates=7, family=gaussian())
+        mdl <- depmixS4::depmix(emf ~ 1, data=ic25kHz_12_sgmnt1,
+                                nstates=7, family=gaussian())
         fitdepmix <- depmixS4::fit(mdl)
     }
 }
