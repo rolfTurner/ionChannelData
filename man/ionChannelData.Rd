@@ -55,14 +55,14 @@ these data.
     if(requireNamespace("eglhmm")) {
         if(requireNamespace("ionChannelData")) {
             X <- ionChanneldata::ic25kHz_12_sgmnt1
-            fit1 <- eglhmm::eglhmm(emf ~ 1,data=ic25kHz_12_sgmnt1,
-                                  distr="Gaussian",K=7,method="em",
-                                  tolerance=1e-6,verb=TRUE,itmax=1000)
+            fit1 <- eglhmm::eglhmm(emf ~ 1,data=X,distr="Gaussian",
+                                   K=7,method="em",tolerance=1e-6,
+                                   verb=TRUE,itmax=1000)
 # Compare with results from depmixS4
         if(requireNamespace("depmixS4")) {
-            mdl <- depmixS4::depmix(emf ~ 1, data=ic25kHz_12_sgmnt1,
-                                    nstates=7, family=gaussian())
-            fit2 <- depmixS4::fit(mdl)
+            mdl <- depmixS4::depmix(emf ~ 1, data=X,nstates=7,
+                                    family=gaussian())
+            fit2 <- depmixS4::fit(mdl,emcontrol=em.control(maxit=1000))
         }
     }
 }
