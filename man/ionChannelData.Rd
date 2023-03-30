@@ -13,8 +13,17 @@
     Ion channel data
 }
 \description{
-Time series of observations, made by means of a patch clamp, of
-the voltage (emf) in nanovolts, across cell membranes.
+Time series of observations, made by means of patch clamps,
+of the voltage (emf) in nanovolts, across cell membranes.
+These data are basically intended for use with the \code{eglhmm}
+package, as examples of data to which hidden Markov models with
+Gaussian emissions could be fitted.  However their presence in
+the \code{eglhmm} package would cause the size of the \code{data}
+directory in that package to exceed 4.5 Mb., which is unacceptably
+large.  Consequently these data sets have been placed in a
+separate \dQuote{data only} package (the package currently under
+consideration).  In the normal course of events, users will obtain
+this package (i.e.  \code{ionChannelData}) from \code{github}.
 }
 \usage{
    ic25kHz_12_sgmnt1
@@ -35,23 +44,26 @@ the voltage (emf) in nanovolts, across cell membranes.
 Nazim:  can you add any details?
 }
 \source{
-Nazim: can you supply a succinct discription of the source of these data?
+Nazim:  can you supply a succinct discription of the source of these data?
 }
 \references{
-Nazim: please supply relevant references to papers and theses which discuss
+Nazim:  please supply relevant references to papers and theses which discuss
 these data.
 }
 \examples{
 \dontrun{ # Takes a VERY long time.  Total of 645 EM steps.
     if(requireNamespace("eglhmm")) {
-        fit <- eglhmm::eglhmm(emf ~ 1,data=ic25kHz_12_sgmnt1,
-                              distr="Gaussian",K=7,method="em",
-                              tolerance=1e-6,verb=TRUE,itmax=1000)
+        if(requireNamespace("ionChannelData")) {
+            X <- ionChanneldata::ic25kHz_12_sgmnt1
+            fit1 <- eglhmm::eglhmm(emf ~ 1,data=ic25kHz_12_sgmnt1,
+                                  distr="Gaussian",K=7,method="em",
+                                  tolerance=1e-6,verb=TRUE,itmax=1000)
 # Compare with results from depmixS4
-    if(requireNamespace("depmixS4")) {
-        mdl <- depmixS4::depmix(emf ~ 1, data=ic25kHz_12_sgmnt1,
-                                nstates=7, family=gaussian())
-        fitdepmix <- depmixS4::fit(mdl)
+        if(requireNamespace("depmixS4")) {
+            mdl <- depmixS4::depmix(emf ~ 1, data=ic25kHz_12_sgmnt1,
+                                    nstates=7, family=gaussian())
+            fit2 <- depmixS4::fit(mdl)
+        }
     }
 }
 }
