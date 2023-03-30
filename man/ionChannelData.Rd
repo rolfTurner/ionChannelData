@@ -51,13 +51,17 @@ Nazim:  please supply relevant references to papers and theses which discuss
 these data.
 }
 \examples{
+if(requireNamespace("eglhmm")) {
+    X    <- ic25kHz_12_sgmnt1[1:1000,1,drop=FALSE] # Tiny subset, to run fast.
+    fit0 <- eglhmm::eglhmm(emf ~ 1,data=X,distr="Gaussian",K=7,
+                   method="em",tolerance=1e-6,verb=TRUE,itmax=1000)
+}
 \dontrun{ # Takes a VERY long time.  Total of 645 EM steps.
     if(requireNamespace("eglhmm")) {
-        if(requireNamespace("ionChannelData")) {
-            X <- ionChanneldata::ic25kHz_12_sgmnt1
-            fit1 <- eglhmm::eglhmm(emf ~ 1,data=X,distr="Gaussian",
-                                   K=7,method="em",tolerance=1e-6,
-                                   verb=TRUE,itmax=1000)
+        X    <- ic25kHz_12_sgmnt1
+        fit1 <- eglhmm::eglhmm(emf ~ 1,data=X,distr="Gaussian",
+                               K=7,method="em",tolerance=1e-6,
+                               verb=TRUE,itmax=1000)
 # Compare with results from depmixS4
         if(requireNamespace("depmixS4")) {
             mdl <- depmixS4::depmix(emf ~ 1, data=X,nstates=7,
@@ -65,7 +69,6 @@ these data.
             fit2 <- depmixS4::fit(mdl,emcontrol=em.control(maxit=1000))
         }
     }
-}
 }
 }
 \keyword{datasets}

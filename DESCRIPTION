@@ -8,5 +8,6 @@ Depends: R (>= 3.5)
 Description: Data sets, from ion channel patch-clamp studies, to which
 	hidden Markov models (based on the assumption of Gaussian distributed
 	emissions) may be fitted.
+Suggests: eglhmm, depmixS4
 License: file LICENSE
 LazyData: true
