@@ -1,4 +1,11 @@
 
+Version 0.0-2 17/05/2023
+
+Revised (extensively) the help file ionChannelData.Rd, on the
+basis of input from Nazim Khan.
+
+Changed the name of the (single) column of each data from to "current".
+
 Version 0.0-1 30/03/2023
 
 Initial version of package.
