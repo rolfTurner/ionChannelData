@@ -64,8 +64,8 @@ The data were screened and eight data sets (four at each bandwidth)
 each containing about 200,000 values were selected for analysis. This
 package contains these eight data sets.
 
-\bold{Experimental technique:} 6 \eqn{\times}{x} His-tagged MscL
-proteins were purified, and the 6 \eqn{\times}{x} His tag was
+\bold{Experimental technique:} 6\eqn{\times}{x}His-tagged MscL
+proteins were purified, and the 6\eqn{\times}{x}His tag was
 removed by thrombin according to a published procedure (H\"{a}se et
 al. 1995). Purified MscL material was reconstituted into liposomes
 mixed with 100 \% soybean azolectin using a dehydration/rehydration
@@ -145,19 +145,23 @@ if(requireNamespace("eglhmm")) {
     # Extract tiny subset, to run fast.
     X    <- ionChannelData::ic25kHz_12_sgmnt1[1:1000,1,drop=FALSE]
     fit0 <- eglhmm::eglhmm(current ~ 1,data=X,distr="Gaussian",K=7,
-                   method="em",tolerance=1e-6,verb=TRUE,itmax=1000)
+                   method="em",tolerance=1e-6,verb=TRUE,itmax=1500)
+    fit1 <- eglhmm::eglhmm(current ~ 1,data=X,distr="Gaussian",K=7,
+                           preSpecSigma=seq(0.5,3.5,length=7),
+                           method="em",tolerance=1e-6,verb=TRUE,
+                           itmax=1500)
 }
-\dontrun{ # Takes a VERY long time.  Total of 645 EM steps.
+\dontrun{ # Takes a VERY long time.  Total of 645 (slow!) EM steps.
     if(requireNamespace("eglhmm")) {
         X    <- ic25kHz_12_sgmnt1
-        fit1 <- eglhmm::eglhmm(current ~ 1,data=X,distr="Gaussian",K=7,
+        fit2 <- eglhmm::eglhmm(current ~ 1,data=X,distr="Gaussian",K=7,
                 method="em",tolerance=1e-6,verb=TRUE,itmax=1000)
 # Compare results from depmixS4.
         if(requireNamespace("depmixS4")) {
             mdl  <- depmixS4::depmix(current ~ 1, data=X, nstates=7,
                                      family=gaussian())
             set.seed(42) # To make the random starting values repeatable.
-            fit2 <- depmixS4::fit(mdl,emcontrol=em.control(maxit=1000))
+            fit3 <- depmixS4::fit(mdl,emcontrol=em.control(maxit=1000))
         }
     }
 }

@@ -1,6 +1,6 @@
 Package: ionChannelData
-Version: 0.0-2
-Date: 2023-05-17
+Version: 0.0-3
+Date: 2023-05-25
 Title: Ion Channel Data for Hidden Markov Models
 Author: Rolf Turner
 Maintainer:	Rolf Turner <r.turner@auckland.ac.nz>
