@@ -1,3 +1,4 @@
+\encoding{UTF-8}
 \name{ionChannelData}
 \alias{ionChannelData}
 \alias{ic25kHz_12_sgmnt1}
@@ -66,7 +67,7 @@ package contains these eight data sets.
 
 \bold{Experimental technique:} 6\eqn{\times}{x}His-tagged MscL
 proteins were purified, and the 6\eqn{\times}{x}His tag was
-removed by thrombin according to a published procedure (H\"{a}se et
+removed by thrombin according to a published procedure (Häse et
 al. 1995). Purified MscL material was reconstituted into liposomes
 mixed with 100 \% soybean azolectin using a dehydration/rehydration
 (D/R) reconstitution method (Delcour et al. 1989; Martinac et
@@ -122,7 +123,7 @@ Delcour, A. H.; Martinac, B.; Adler, J.; Kung, C. (1989).  A modified
 reconstitution method used in patch-clamp studies of Escherichia
 coli ion channels. Biophysics Journal \bold{56}, pp. 631--636.
 
-H\'{a}se, C. C.; Le Dain,  A. C.; Martinac, B. (1995). Purification
+Häse, C. C.; Le Dain,  A. C.; Martinac, B. (1995). Purification
 and functional reconstitution of the recombinant large
 mechanosensitive ion channel (MscL) of Escherichia coli. Journal
 of Biological Chemistry \bold{270} pp. 18329--18334.
@@ -133,7 +134,7 @@ ion channel gating. \emph{Mathematical Biosciences} \bold{193},
 issue 2, pp. 139--158, DOI: https://doi.org/10.1016/j.mbs.2004.07.007.
 
 Martinac, B.; Rohde, P. R.; Battle, A. R.; Petrov, P. P.;  Foo;
-A. F.; V\'{a}squez, V.; Huynh, T.; Kloda, A. (2010). Studying
+A. F.; Vásquez, V.; Huynh, T.; Kloda, A. (2010). Studying
 mechanosensitive ion channels using liposomes. In \emph{Liposomes:
 Methods and Protocols, Volume 2: Biological Membrane Models},
 Volkmar Weissig ed., \emph{Springer} book series \emph{Methods in
