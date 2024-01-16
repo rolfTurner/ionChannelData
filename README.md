@@ -12,16 +12,16 @@ available in a separate package that can be installed from github.
 To create the github repository, the procedure is:
 
 (1) log in to github, click on "New", type in the repository name,
-(in this instance "monoCyteSim"), and choose a licence (GPL?).
+(in this instance "ionChannelData"), and choose a licence (GPL?).
 
 (2) Click on the name of the new repository and click on "Code".
 
 (3) Copy the https code. (In this instance):
 
-    https://github.com/rolfTurner/monoCyteSim.git
+    https://github.com/rolfTurner/ionChannelData.git
 
 (4) Type: git clone and then paste in the code/string that you have
-just copied, i.e. https://github.com/rolfTurner/monoCyteSim.git.
+just copied, i.e. https://github.com/rolfTurner/ionChannelData.git.
 
 Or you could dispense with the copying and pasting, as long as you type
 the string correctly.
